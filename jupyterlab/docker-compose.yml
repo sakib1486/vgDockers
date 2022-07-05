@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  #Jupyterlab
+  jupyterlab:
+    image: cande/jupyterlab-environment:latest
+    container_name: jupyterlab
+    volumes:
+      - /home/sakib2/notebooks:/notebooks
+    ports:
+      - 8006:8888
+      - 8007:4040
+    environment:
+      - JUPYTER_ENABLE_LAB=1
+      - GRANT_SUDO=yes
+    command: start-notebook.sh --NotebookApp.notebook_dir=/notebooks --allow-root
+
+networks:
+  default:
+    external:
+      name: cratenet
