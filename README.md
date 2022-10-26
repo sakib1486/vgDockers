@@ -82,7 +82,7 @@ The built up APIs's definition can be found [here](APIs/app/main.py). To use apa
 
 ## Report
 
-The final report for the project can be found [here](Sakib's 701 Report.pdf).
+The final report for the project can be found [here](Sakib's 701 Report.pdf/).
 
 ## Virtual Gym Pipeline Documentation
 
