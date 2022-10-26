@@ -76,7 +76,7 @@ _localhost:4200_ : CrateDB Dashboard
 _localhost:8006_ : JupyterLab Dashboard
 _locahost:8100/_ : APIs
 
-The built up APIs's definition can be found [APIs/app/main.py](here). To use aparticular API, one need to use url like this:
+The built up APIs's definition can be found [here](APIs/app/main.py). To use aparticular API, one need to use url like this:
 
 `localhost:8100/{API direction}`
 
@@ -86,4 +86,4 @@ The final report for the project can be found [here](here).
 
 ## Virtual Gym Pipeline Documentation
 
-The virtual gym overall pipeline and documentation is explained in [SoDa-TAP Documentation] (https://www.sodatap.ml/en/latest/useCases/virtualGym/).
+The virtual gym overall pipeline and documentation is explained in [https://www.sodatap.ml/en/latest/useCases/virtualGym/](SoDa-TAP Documentation).
