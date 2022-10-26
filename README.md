@@ -29,5 +29,16 @@ a single mini game. As a session is being played, data is being sent through a w
 ## Folders and Files
 - _APIs_ : directory containing the docker-compose file and scripts to run the FAST APIs built upon python which helps communicate among different parts of the Virtual Gym.
 - _Kafka_ : directory containing the docker-compose file required to launch the Apche Kafka for the backend.
-- _
+- _crate_ : directory containing the docker-compose file required to launch the Crate DB required to store the streamed data.
+- _jupyterlab_: directory containing the docker-compose file required to launch the jupyterlab notebooks to transfer data from Kafka to CrateDB through Apache Spark.
+- _metrics.py_ : python script file which calculates the metrics for a completed session, and saves them back to a PostgreSQL and a Crate database. One might need to install a local postgres to make it work.
+
+## Usage
+
+Running the dockers have to be done in a serial manner. 
+
+Firstly, to launch the Apcher Kafka, run the followings:
+
+`cd kafka`
+`sudo docker-compose up -d`
 
