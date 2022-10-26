@@ -134,3 +134,8 @@ services:
       CONTROL_CENTER_STREAMS_NUM_STREAM_THREADS: 1
       CONTROL_CENTER_STREAMS_CACHE_MAX_BYTES_BUFFERING: 104857600
       PORT: 9021
+
+networks:
+        default:
+                external:
+                        name: cratenet

@@ -1,0 +1,81 @@
+version: '3.3'
+services:
+  #CrateDB
+  cratedb:
+    image: crate:4.7.1
+    container_name: cratedb
+    ports:
+      - "4200:4200"
+      - "4300:4300"
+      - "5432:5432"
+    volumes:
+      - /home/vagrant/SoDa-TAP/crate/crateData:/data
+    command: ["crate",
+              "-Ccluster.name=CECN",
+              "-Cnode.name=cratedb",
+              "-Cnode.data=true",
+              "-Cnetwork.host=_site_",
+              "-Cdiscovery.seed_hosts=cratedb_02,cratedb_03",
+              "-Ccluster.initial_master_nodes=cratedb,cratedb_02,cratedb_03",
+              "-Cgateway.expected_nodes=3",
+              "-Cgateway.recover_after_nodes=2",
+              "-Chttp.cors.enabled=true",
+              "-Chttp.cors.allow-origin=*"
+              ]
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      - CRATE_HEAP_SIZE=2g
+
+  cratedb_02:
+    image: crate:4.7.1
+    container_name: cratedb_02
+    ports:
+      - "4201:4200"
+    volumes:
+      - /home/vagrant/SoDa-TAP/crate/crateData2:/data
+    command: ["crate",
+              "-Ccluster.name=CECN",
+              "-Cnode.name=cratedb_02",
+              "-Cnode.data=true",
+              "-Cnetwork.host=_site_",
+              "-Cdiscovery.seed_hosts=cratedb,cratedb_03",
+              "-Ccluster.initial_master_nodes=cratedb,cratedb_02,cratedb_03",
+              "-Cgateway.expected_nodes=3",
+              "-Cgateway.recover_after_nodes=2"]
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      - CRATE_HEAP_SIZE=2g
+
+  cratedb_03:
+    image: crate:4.7.1
+    container_name: cratedb_03
+    ports:
+      - "4202:4200"
+    volumes:
+      - /home/vagrant/SoDa-TAP/crate/crateData3:/data
+    command: ["crate",
+              "-Ccluster.name=CECN",
+              "-Cnode.name=cratedb_03",
+              "-Cnode.data=true",
+              "-Cnetwork.host=_site_",
+              "-Cdiscovery.seed_hosts=cratedb,cratedb_02",
+              "-Ccluster.initial_master_nodes=cratedb,cratedb_02,cratedb_03",
+              "-Cgateway.expected_nodes=3",
+              "-Cgateway.recover_after_nodes=2"]
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      - CRATE_HEAP_SIZE=2g
+
+networks:
+  default:
+    external:
+      name: cratenet

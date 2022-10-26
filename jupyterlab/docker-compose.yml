@@ -5,7 +5,7 @@ services:
     image: cande/jupyterlab-environment:latest
     container_name: jupyterlab
     volumes:
-      - /home/sakib2/notebooks:/notebooks
+      - /home/virtualgym/Desktop/vgDockers/notebooks:/notebooks
     ports:
       - 8006:8888
       - 8007:4040

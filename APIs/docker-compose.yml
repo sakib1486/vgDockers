@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  apis:
+    build: .
+    image: apis:latest
+    container_name: apis
+    restart: always
+    volumes:
+      - ./app:/app
+      - /etc/localtime:/etc/localtime:ro
+
+    ports:
+      - "8100:8100"
+      
+    environment:
+      - PORT=8100
+      - TIMEOUT=500
+      - BIND=0.0.0.0:8100 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+networks:
+  default:
+    external:
+      name: cratenet
+
