@@ -86,4 +86,4 @@ The final report for the project can be found [here](here).
 
 ## Virtual Gym Pipeline Documentation
 
-The virtual gym overall pipeline and documentation is explained in [https://www.sodatap.ml/en/latest/useCases/virtualGym/](SoDa-TAP Documentation).
+The virtual gym overall pipeline and documentation is explained in [SoDa-TAP Documentation](https://www.sodatap.ml/en/latest/useCases/virtualGym/).
