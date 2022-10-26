@@ -35,11 +35,47 @@ a single mini game. As a session is being played, data is being sent through a w
 
 ## Usage
 
-Running the dockers have to be done in a serial manner. 
+Running the dockers have to be done in a serial manner After cloning the repo, navigate to the root directory. 
 
-Firstly, to launch the Apcher Kafka, run the followings:
+Firstly, to launch the Apache Kafka, run the followings:
 
 `cd kafka`
 
 `sudo docker-compose up -d`
 
+`cd ..`
+
+Once kafka is up, next to launch is CrateDB with:
+
+`cd crate`
+
+`sudo docker-compose up -d`
+
+`cd ..`
+
+After this, jupyterlab needs to be run with:
+
+`cd jupyterlab`
+
+`sudo docker-compose up -d`
+
+`cd ..`
+
+And, finally we launch the APIs needed to communicate with:
+
+`cd APIs`
+
+`sudo docker-compose up -d`
+
+`cd ..`
+
+After launching all these, the dockers can be reached with public URL at:
+
+_localhost:9021_ : Kafka Confluent Dashboard
+_localhost:4200_ : CrateDB Dashboard
+_localhost:8006_ : JupyterLab Dashboard
+_locahost:8100/_ : APIs
+
+The built up APIs's definition can be found [here] (APIs/app/main.py). To use aparticular API, one need to use url like this:
+
+`localhost:8100/{API direction}`
