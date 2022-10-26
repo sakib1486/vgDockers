@@ -40,5 +40,6 @@ Running the dockers have to be done in a serial manner.
 Firstly, to launch the Apcher Kafka, run the followings:
 
 `cd kafka`
+
 `sudo docker-compose up -d`
 
